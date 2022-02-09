@@ -1,4 +1,4 @@
-FROM node:16.13.0
+FROM node:lts-buster
 
 RUN apt-get update && \
   apt-get install -y \
@@ -15,4 +15,4 @@ RUN npm instal ts-node -g
 COPY . .
 EXPOSE 5000
 
-CMD ["npm", "start"]`
+CMD ["ts-node", "index.js"]`
