@@ -20,7 +20,7 @@ import {
 const {
     state,
     saveState
-} = useSingleFileAuthState('../hisok.json')
+} = useSingleFileAuthState('../session.json')
 const store = makeInMemoryStore({
     logger: P().child({
         level: 'debug', stream: 'store'
@@ -33,7 +33,7 @@ export class Client extends EventEmitter {
         (async() => {
             try {
                 setInterval(() => {
-                    store.writeToFile('../auth.json')
+                    store.writeToFile('../session.json')
                 }, 10_000)
                 this.client = makeWASocket({
                     auth: state,
